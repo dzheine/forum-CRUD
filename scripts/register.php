@@ -34,7 +34,7 @@ if($password===$confirmPassword){
 }
 
 try{
-    $sql = "INSERT INTO users (first_name, last_name, email, password) VALUES ('$fname', '$lname', '$email', '$password')";
+    $sql = "INSERT INTO users (first_name, last_name, nickname, email, password) VALUES ('$fname', '$lname', '$nick', '$email', '$password')";
     $query = $conn->prepare($sql);
     $query->execute();
     header("Location: ../views/thanks.php");
