@@ -26,7 +26,8 @@ if($_POST){
         if(password_verify($password, $passwordHash)){
            
             $_SESSION['username']=$result['first_name'];
-            header("Location: ../views/user_list.php");
+            $_SESSION['userid']=$result['id'];
+                        header("Location: ../views/user_list.php");
         } else {
             echo "Password is incorrect";
         }

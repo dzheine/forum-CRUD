@@ -11,13 +11,21 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
     <div class="container">
-        <span>WELCOME</span>
+        ,<h1 class="nav-link text-secondary">Lets Chat!</h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarItems">
             <!-- Menu items
             Authentication links -->
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a href="http://localhost/forum/views/user_list.php" class="nav-link">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://localhost/forum/views/my_forum.php" class="nav-link">Forum</a>
+                </li>
+            </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a href="../scripts/logout.php" class="nav-link">Log out</a>

@@ -66,3 +66,10 @@
 
 </body>
 </html>
+
+<!-- Vartotojo redagavimo ir istrynimo funkcijos
+
+Forumo pranesimu rasymo ir skaitymo funkcijos. Vartotojai gali rasyti pranesimu i foruma, matoma kas parase pranesima. Vartotojas gali trinti ir redaguoti TIK SAVO pranesimus. 
+
+reikia lenteles pranesimams, ta lentele turi buti susijusi su users
+reikia formos sukurti pranesima, redaguoti pranesima,-->

@@ -45,7 +45,10 @@ try{
                     </table>
                 </div>
                 <div class="card-footer text-muted">
-                    
+                <div class="card-header bg-secondary">
+                    <h4><a href="my_forum.php" class="text-white">Go to Forum</a></h4>
+                </div>
+  
                 </div>
             </div>
         </div>
