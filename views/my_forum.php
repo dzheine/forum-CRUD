@@ -37,7 +37,11 @@ try{
                         </tr>
                         <?php
                         foreach($result as $user){
-                            echo "<tr><td>".$user['nickname']."</td><td>".$user['message']."</td><td>".$user['created']."</td><td><a class='btn btn-warning' href='forum_edit.php?postid=".$user['id']."'>Edit</a><a class='btn btn-danger' href='../scripts/forum_delete.php?postid=".$user['id']."'>Delete</a></td></tr>";
+                            if ($userid == $user['user_id']) {
+                            echo "<tr><td>".$user['nickname']."</td><td>".$user['message']."</td><td>".$user['created']."</td><td><a class='btn btn-warning' href='forum_edit.php?postid=".$user['id']."'>Edit</a></td></tr>";
+                            }else {
+                                echo "<tr><td>".$user['nickname']."</td><td>".$user['message']."</td><td>".$user['created']."</td><td>";
+                            }
                         }
                         ?>
                     </table>
@@ -46,6 +50,7 @@ try{
                 <div class="card-header bg-secondary">
                     <form action="../scripts/post.php" method="POST">
                         <textarea name="post" id="" cols="100" rows="1" placeholder="Write something here.."></textarea>
+                        <input type="hidden" name="userid" value="<?php echo $result['user_id'];?>">
                         <button type="submit" class="btn btn-success">Post</button>
                     </form>
                 </div>
@@ -57,3 +62,7 @@ try{
 
     </div>
 </div>
+
+<!-- Like mygtukas komentarui
+ir komentarui skaiciuojami Like paspaudimai
+Useris jei paspaude Like, jo antra karta spausti negali -->
