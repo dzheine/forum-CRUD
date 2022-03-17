@@ -18,7 +18,7 @@ try{
 }catch(PDOException $e){
     echo "Failed: ". $e->getMessage();
 } 
-// print("<pre>".print_r($result,true)."</pre>");
+//print("<pre>".print_r($result,true)."</pre>");
 ?>
 
 <div class="container py-4">
@@ -37,10 +37,18 @@ try{
                         </tr>
                         <?php
                         foreach($result as $user){
+                                // var_dump($result);
+                            $id=$user['id'];
+                            $sql = "SELECT COUNT(*) amount\n"
+                            . "FROM `likes`\n"
+                            . "WHERE messages_id='$id';";
+                            $query= $conn->prepare($sql);
+                            $query->execute();
+                            $likes= $query->fetch();
                             if ($userid == $user['user_id']) {
-                            echo "<tr><td>".$user['nickname']."</td><td>".$user['message']."</td><td>".$user['created']."</td><td><a class='btn btn-warning' href='forum_edit.php?postid=".$user['id']."'>Edit</a></td></tr>";
+                            echo "<tr><td>".$user['nickname']."</td><td>".$user['message']."</td><td>".$user['created']."</td><td><a href='../scripts/likes.php?postid=".$user['id']."'><i class='fa-solid fa-thumbs-up'></i></a></td><td>".$likes['amount']."</td><td><a class='btn btn-warning' href='forum_edit.php?postid=".$user['id']."'>Edit</a></td></tr>";
                             }else {
-                                echo "<tr><td>".$user['nickname']."</td><td>".$user['message']."</td><td>".$user['created']."</td><td>";
+                                echo "<tr><td>".$user['nickname']."</td><td>".$user['message']."</td><td>".$user['created']."</td><td><a href='../scripts/likes.php?postid=".$user['id']."'><i class='fa-solid fa-thumbs-up'></i></a></td><td>".$likes['amount']."</td></tr>";
                             }
                         }
                         ?>
@@ -49,9 +57,9 @@ try{
                 <div class="card-footer text-muted">
                 <div class="card-header bg-secondary">
                     <form action="../scripts/post.php" method="POST">
-                        <textarea name="post" id="" cols="100" rows="1" placeholder="Write something here.."></textarea>
+                        <textarea name="post" id="" cols="150" rows="1" placeholder="Write something here.."></textarea>
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Post</button>
                         <input type="hidden" name="userid" value="<?php echo $result['user_id'];?>">
-                        <button type="submit" class="btn btn-success">Post</button>
                     </form>
                 </div>
   
@@ -66,3 +74,6 @@ try{
 <!-- Like mygtukas komentarui
 ir komentarui skaiciuojami Like paspaudimai
 Useris jei paspaude Like, jo antra karta spausti negali -->
+
+<!-- ir dar surišt su users lentele, jei gerai suprantu
+nes vienas postas turi daug laikų ir vienas vartotojas daug postų gali laikint
