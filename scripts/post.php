@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['userid'])){
-    header("Location: ../views/user_list.php");
+    header("Location: ../views/.php");
 }
 
 include("../header.php");

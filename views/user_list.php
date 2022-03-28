@@ -39,7 +39,11 @@ try{
                         </tr>
                         <?php
                         foreach($result as $user){
+                        if ($_SESSION['userid'] !== $user['id']) {
+                            echo "<tr><td>".$user['first_name']."</td><td>".$user['last_name']."</td><td>".$user['nickname']."</td><td>".$user['email']."</td><td>".$user['created']."</td><td>".$user['modified']."</td><tr>";
+                        }else {
                             echo "<tr><td>".$user['first_name']."</td><td>".$user['last_name']."</td><td>".$user['nickname']."</td><td>".$user['email']."</td><td>".$user['created']."</td><td>".$user['modified']."</td><td><a class='btn btn-warning' href='users_edit.php?userid=".$user['id']."'>Edit</a><a class='btn btn-danger' href='../scripts/user_delete.php?userid=".$user['id']."'>Delete</a></td></tr>";
+                        }
                         }
                         ?>
                     </table>

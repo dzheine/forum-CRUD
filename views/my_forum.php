@@ -9,9 +9,7 @@ require_once("../db_connect.php");
 
 $userid = $_SESSION['userid'];
 try{
-  $sql = "SELECT messages.user_id, messages.id, users.nickname, messages.message, messages.created\n"
-    . " FROM `messages`\n"
-    . " JOIN users ON users.id=messages.user_id;";
+  $sql = "SELECT messages.user_id, messages.id, users.nickname, messages.message, messages.created FROM `messages` JOIN users ON users.id=messages.user_id ORDER by messages.created DESC";    ;
     $query= $conn->prepare($sql);
     $query->execute();
     $result= $query->fetchAll();

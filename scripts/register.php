@@ -7,7 +7,6 @@ $fname=$lname=$email=$password=$confirmPassword="";
 
 if($_POST){
     if(!empty($_POST['fname']) && !empty($_POST['lname'])  && !empty($_POST['nick']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmPassword'])){
-
         $password=$_POST['password'];
         $confirmPassword=$_POST['confirmPassword'];
             if($password===$confirmPassword){
@@ -16,9 +15,9 @@ if($_POST){
                 $email=$_POST['email'];
                 $nick=$_POST['nick'];
             } else {
-                echo "passwords do not match";
+                echo "Passwords do not match";
             }
-    }  else{
+    } else{
         echo "Please fill all fields";
     }
 } else {
